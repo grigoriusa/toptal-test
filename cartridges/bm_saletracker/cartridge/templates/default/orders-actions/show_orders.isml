@@ -1,0 +1,73 @@
+<!--- TEMPLATENAME: start.isml --->
+<script>
+    var viewOrderURL = "${URLUtils.https('ViewOrder_52-FindByNumber', 'OrderID', 'ORDERID')}";
+    var viewManagerURL = "${URLUtils.https('SaleOrder-GetManagerDetails', 'managerId', 'MANAGERID')}";
+</script>
+
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/panel.css')}" />
+<isdecorate template="application/MenuFrame">
+    <script type="text/javascript" src="${URLUtils.staticURL('/js/panel.js')}"></script>
+    <div class="orders-container">
+        <h1>${Resource.msg('action.heading.title','ordersadmin',null)}</h1>
+        <div class="headings">
+            <div class="orders-box" onClick="getNonManagerOrders();">
+                <div id="count_fraud_approval" class="number">${pdict.counts.without_manager}</div>
+                <h2>${Resource.msg('action.heading.withoutmanager','ordersadmin',null)}</h2>
+            </div>
+            <div class="orders-box" onClick="getManagerOrders();">
+                <div id="count_approval" class="number">${pdict.counts.with_manager}</div>
+                <h2>${Resource.msg('action.heading.withmanager','ordersadmin',null)}</h2>
+            </div>
+            <div class="orders-box">
+                <div id="count_approval" class="">${pdict.counts.with_manager_revenue}</div>
+                <h2>${Resource.msg('action.heading.campaingrevenuue','ordersadmin',null)}</h2>
+            </div>
+            <div class="orders-box manager-id">
+                <div id="count_approval" class="">${pdict.counts.without_manager_revenue}</div>
+                <h2>${Resource.msg('action.heading.withoutcampaing','ordersadmin',null)}</h2>
+            </div>
+            <div class="orders-box">
+                <a href="${URLUtils.https('ViewProductList_52-List')}"><h2>${Resource.msg('action.heading.searchproduct','ordersadmin',null)}</h2></a>
+            </div>
+        </div>
+    </div>
+    <div class="action_container">
+        <h3 id="action_title"></h3>
+        <table id="actioncontent">
+
+        </table>
+    </div>
+    <div class="overlay"></div>
+    <script id="action_order_headings" type="text/x-jQuery-tmpl">
+        <tr>
+        <th>${Resource.msg('action.table.order','ordersadmin',null)}</th>
+        <th>${Resource.msg('action.table.date','ordersadmin',null)}</th>
+        <th>${Resource.msg('action.table.customer','ordersadmin',null)}</th>
+        <th>${Resource.msg('action.table.chanellmanager','ordersadmin',null)}</th>
+        <th>${Resource.msg('action.table.products','ordersadmin',null)}</th>
+        <th>${Resource.msg('action.table.billing','ordersadmin',null)}</th>
+        <th>${Resource.msg('action.table.shipping','ordersadmin',null)}</th>
+        <th>${Resource.msg('action.table.total','ordersadmin',null)}</th>
+        </tr>
+    </script>
+
+    <script id="action_order" type="text/x-jQuery-tmpl">
+        <tr id="%{uuid}">
+        <td>%{orderno}</td>
+        <td class="date">%{date}</td>
+        <td>%{customer.name}<br>%{customer.email}</td>
+        <td class="manageroverview link">%{saleManagerId}</td>
+        <td class="flexcenter products"><table>%{products}</table></td>
+        <td class="addr">%{billingAddress}</td>
+        <td class="addr">%{shippingAddress}</td>
+        <td class="total">%{total}</td>
+        </tr>
+    </script>
+    <script id="action_products" type="text/x-jQuery-tmpl">
+        <tr>
+        <td class="name">%{name}</td>
+        <td class="qty">x %{qty}</td>
+        <td class="price">%{price}</td>
+        </tr>
+    </script>
+</isdecorate>

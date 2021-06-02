@@ -1,0 +1,257 @@
+.orders-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.orders-container h1{
+    font-size: 3rem !important;
+    text-align: center;
+    font-weight: 400 !important;;
+}
+
+.orders-container .headings{
+    display: flex;
+}
+
+.orders-box {
+    margin: 10px;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-end;
+    border-radius: 10px;
+    color: white;
+    background: rgba(15, 88, 88, 0.68);
+    cursor: pointer;
+}
+
+.orders-box .number {
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+.orders-box h2 {
+    font-variant: all-small-caps;
+    font-size: 2.2rem;
+}
+
+.action_container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid;
+    margin-top:20px;
+    padding-top:20px;
+}
+
+#actioncontent{
+    width: 100%;
+}
+
+${'#'}action_title {
+    font-size:2.2rem;
+    color: rgba(15, 88, 88, 0.68);
+    font-weight: 700;
+}
+
+table${'#'}actioncontent > tr {
+    border-bottom: 1px solid rgb(210,210,210);
+}
+
+table${'#'}actioncontent th, table${'#'}actioncontent td {
+    vertical-align: top;
+}
+
+table${'#'}actioncontent td, table${'#'}actioncontent th {
+    padding:10px;
+    text-align: center;
+}
+
+table${'#'}actioncontent td.total{
+    white-space: nowrap;
+    text-align: right;
+}
+
+.flexcenter{
+    display: flex;
+    justify-content: center;
+}
+
+table${'#'}actioncontent td.date {
+    max-width: 100px;
+    width: 100px;
+}
+
+table${'#'}actioncontent td.addr {
+    max-width: 150px;
+    width: 150px;
+}
+
+table${'#'}actioncontent td.actions {
+    max-width: 110px;
+    width: 110px;
+    padding:10px 10px 10px 0;
+    vertical-align: middle;
+}
+
+table${'#'}actioncontent td.actions a{
+    margin: 5px;
+    max-width: 100px;
+    width: 100px;
+    padding: 5px 2px;
+    border: 0;
+    border-radius: 10px;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+}
+
+table${'#'}actioncontent td.actions a:active{
+    background: rgba(228,228,228,0.3) !important;
+}
+
+table${'#'}actioncontent td.products {
+    /* max-width:400px; */
+    /* padding-top:8; */
+}
+
+table${'#'}actioncontent td.products table {
+    width:100%;
+}
+
+table${'#'}actioncontent td.products table td {
+    padding:0px 2px;
+}
+
+table${'#'}actioncontent td.products table td.id {
+    max-width: 70px;
+    width: 70;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+}
+
+table${'#'}actioncontent td.products table td.name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+}
+
+table${'#'}actioncontent td.products table td.qty {
+    white-space: nowrap;
+    max-width:30px;
+    width: 30px;
+}
+
+table${'#'}actioncontent td.products table td.price {
+    min-width:80px;
+    width:80px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+table${'#'}actioncontent > tr:not(:first-child):hover {
+    background-color: rgba(15, 88, 88, 0.1);
+}
+
+.overlay{
+    position:fixed;
+    top: 0;
+    left:0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: rgba(1,1,1,0.4);
+    display: none;
+}
+
+.overlay.show{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.overlay .result {
+    font-size: 3rem;
+    color: rgb(228,228,228);
+}
+
+.overlay .result.error span {
+    color: pink;
+    font-style: italic;
+    display: block;
+}
+
+/* https://projects.lukehaas.me/css-loaders/ */
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+    color: #77deff;
+    font-size: 10px;
+    margin: 10px auto 40px;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+.loader:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+.loader:after {
+    left: 3.5em;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2;
+}
+@-webkit-keyframes load7 {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+@keyframes load7 {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+.link {
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}
